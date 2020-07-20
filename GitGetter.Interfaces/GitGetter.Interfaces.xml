@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GitGetter.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:GitGetter.Interfaces.IErrorReporter">
+            <summary>
+            Interface for Error Reporter functionality. It allows a method that performs a task to give back error messages to the caller, without exceptions being thrown.
+            </summary>
+        </member>
+        <member name="M:GitGetter.Interfaces.IErrorReporter.ClearError">
+            <summary>
+            Clear the error text stored in the IErrorReporter instance.
+            </summary>
+        </member>
+        <member name="M:GitGetter.Interfaces.IErrorReporter.HasError">
+            <summary>
+            Returns true if the IErrorReporter instance contains error text; false otherwise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GitGetter.Interfaces.IErrorReporter.ShowError(System.String)">
+            <summary>
+            Append msg to the IErrorReporter instance. If there is existing error text, it will be preserved and a newline is inserted between the existing text and the new msg.
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="T:GitGetter.Interfaces.IGitGetter">
+            <summary>
+            Interface for Git Getter that can provide info on remote git branches + their interrelationships + their last commit dates.
+            </summary>
+        </member>
+        <member name="M:GitGetter.Interfaces.IGitGetter.BranchesByLastCommitDate(System.String,GitGetter.Interfaces.IErrorReporter)">
+            <summary>
+            Get last commit dates + names of remote branches for the specified git project, sorted by Commit Date (from newest to oldest). Report any errors using the specified reporter.
+            </summary>
+            <param name="projectPath">The checkout path of the git project.</param>
+            <param name="reporter">The IErrorReporter instance to report errors to.</param>
+            <returns>Array of tuples (DateTime date, string branch) sorted by date in descending order (newest to oldest).</returns>
+        </member>
+        <member name="M:GitGetter.Interfaces.IGitGetter.MergedBranches(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,GitGetter.Interfaces.IErrorReporter)">
+            <summary>
+            Determine which of the presented 'branches' have been fully merged into 'branch' for the specified git project. Report any errors using the specified reporter.
+            </summary>
+            <param name="branch">The remote branch to report on (value should start with "/origin/").</param>
+            <param name="branches">Remote branches that will be compared with 'branch' (values should all start with "/origin/").</param>
+            <param name="projectPath">The checkout path of the git project.</param>
+            <param name="reporter">The IErrorReporter instance to report errors to.</param>
+            <returns>The subset of 'branches' for which "has been fully merged into 'branch'" is true (in the same order as 'branches').</returns>
+        </member>
+        <member name="M:GitGetter.Interfaces.IGitGetter.NotMergedBranches(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,GitGetter.Interfaces.IErrorReporter)">
+            <summary>
+            Determine which of the presented 'branches' have not been fully merged into 'branch' for the specified git project. Report any errors using the specified reporter.
+            </summary>
+            <param name="branch">The remote branch to report on (value should start with "/origin/").</param>
+            <param name="branches">Remote branches that will be compared with 'branch' (values should all start with "/origin/").</param>
+            <param name="projectPath">The checkout path of the git project.</param>
+            <param name="reporter">The IErrorReporter instance to report errors to.</param>
+            <returns>The subset of 'branches' for which "has not been fully merged into 'branch'" is true (in the same order as 'branches').</returns>
+        </member>
+        <member name="M:GitGetter.Interfaces.IGitGetter.Refresh(System.String,GitGetter.Interfaces.IErrorReporter)">
+            <summary>
+            Update cached data for the specified git project by connecting with the remote server, as configured in the git config. Report any errors using the specified reporter.
+            </summary>
+            <param name="projectPath">The checkout path of the git project.</param>
+            <param name="reporter">The IErrorReporter instance to report errors to.</param>
+        </member>
+        <member name="M:GitGetter.Interfaces.IGitGetter.RemoteBranches(System.String,GitGetter.Interfaces.IErrorReporter)">
+            <summary>
+            Get list of remote branches for the specified git project. Report any errors using the specified reporter.
+            </summary>
+            <param name="projectPath">The checkout path of the git project.</param>
+            <param name="reporter">The IErrorReporter instance to report errors to.</param>
+            <returns>Array of remote branch names (all starting with "/origin/").</returns>
+        </member>
+    </members>
+</doc>

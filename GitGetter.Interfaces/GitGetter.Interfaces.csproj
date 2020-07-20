@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.3.0</Version>
+    <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Peter Broekhuizen</Authors>
+    <Description>Interfaces that define GitGetter functionality.
+
+1) IGitGetter (uses IErrorReporter, see below)
+Consists of:
+- (DateTime date, string branch)[] BranchesByLastCommitDate(string projectPath, IErrorReporter reporter);
+- string[] MergedBranches(string branch, IEnumerable&lt;string&gt; branches, string projectPath, IErrorReporter reporter);
+- string[] NotMergedBranches(string branch, IEnumerable&lt;string&gt; branches, string projectPath, IErrorReporter reporter);
+- void Refresh(string projectPath, IErrorReporter reporter);
+- string[] RemoteBranches(string projectPath, IErrorReporter reporter);
+
+2) IErrorReporter
+Consists of:
+- void ClearError();
+- bool HasError();
+- void ShowError(string msg);</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\peter.broekhuizen\source\repos\GitGetter\GitGetter.Interfaces\GitGetter.Interfaces.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>

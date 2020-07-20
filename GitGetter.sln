@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28714.193
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitGetter.Interfaces", "GitGetter.Interfaces\GitGetter.Interfaces.csproj", "{DEE0F9E0-CA68-40B8-9DF1-5CBE653BF636}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitGetter.GitExe", "GitGetter.GitExe\GitGetter.GitExe.csproj", "{4A385A75-0A53-4B9B-860F-8A3E4ADE6C0F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DEE0F9E0-CA68-40B8-9DF1-5CBE653BF636} = {DEE0F9E0-CA68-40B8-9DF1-5CBE653BF636}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEE0F9E0-CA68-40B8-9DF1-5CBE653BF636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE0F9E0-CA68-40B8-9DF1-5CBE653BF636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE0F9E0-CA68-40B8-9DF1-5CBE653BF636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE0F9E0-CA68-40B8-9DF1-5CBE653BF636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A385A75-0A53-4B9B-860F-8A3E4ADE6C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A385A75-0A53-4B9B-860F-8A3E4ADE6C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A385A75-0A53-4B9B-860F-8A3E4ADE6C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A385A75-0A53-4B9B-860F-8A3E4ADE6C0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8861FFA7-475C-4474-8C41-B5C34EB61506}
+	EndGlobalSection
+EndGlobal
